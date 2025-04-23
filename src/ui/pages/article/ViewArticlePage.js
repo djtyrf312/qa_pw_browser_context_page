@@ -28,7 +28,7 @@ export class ViewArticlePage {
     });
   }
 
-  async asssertAuthorIsFollowed(username) {
+  async assertAuthorIsFollowed(username) {
     await test.step(`Assert the author: ${username} is followed`, async () => {
       await expect(this.followAuthorButton).toContainText('Unfollow');
       await expect(this.followAuthorButton).toContainText(username.toLowerCase());

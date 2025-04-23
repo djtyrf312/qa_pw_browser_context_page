@@ -17,12 +17,13 @@ test.beforeEach(async ({
   await createArticle(page1, articleWithoutTags);
 });
 
-test('User can follow the article created by another user', async ({
+test('User can see other user\'s new articles in "Your Feed" after following their profile', async ({
   articleWithoutTags,
   page2,
   user1,
 }) => {
   const viewArticlePage = new ViewArticlePage(page2);
+  const homePage2 = new HomePage(page2);
 
   await viewArticlePage.open(articleWithoutTags.url)
   await viewArticlePage.assertArticleTitleIsVisible(
@@ -30,6 +31,9 @@ test('User can follow the article created by another user', async ({
   );
   await viewArticlePage.clickFollowButton();
   await viewArticlePage.assertAuthorIsFollowed(user1.username)
+  await homePage2.open();
+  await homePage2.clickYourFeedTab()
+  await homePage2.assertFeedContainsArticleTitle(articleWithoutTags.title);
 });
 
 test.afterEach(async ({ page1, page2 }) => {

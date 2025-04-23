@@ -8,6 +8,20 @@ export class HomePage {
     this.globalFeedTab = page.getByText('Global Feed');
     this.articlePreview = page.locator('.article-preview');
     this.articleTitle = this.articlePreview.locator('h1');
+    this.yourFeedTab = page.getByText('Your Feed');
+  }
+
+  async assertTabisEmpty() {
+    await test.step(`Assert the tab is empty`, async () => {
+      const emptyFeedMessage = this.page.getByText('No articles are here... yet.');
+      await expect(emptyFeedMessage).toBeVisible();
+    });
+  }
+
+  async clickYourFeedTab() {
+    await test.step(`Click the 'Your Feed' tab`, async () => {
+      await this.yourFeedTab.click();
+    });
   }
 
   async assertFeedContainsArticleTitle(articleTitle) {
