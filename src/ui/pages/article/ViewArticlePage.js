@@ -6,6 +6,13 @@ export class ViewArticlePage {
     this.articleTitleHeader = page.getByRole('heading');
     this.followAuthorButton = page.getByRole('button').filter({hasText: 'Follow' }).first();
     this.unfollowAuthorButton = page.getByRole('button').filter({hasText: 'Unfollow' }).first(); 
+    this.editArticleButton = page.getByText('Edit Article').first();
+  }
+
+  async clickEditArticleButton() {
+    await test.step(`Click on 'Edit Article' button`, async () => {
+      await this.editArticleButton.click();
+    });
   }
 
   async assertAuthorIsUnfollowed(username) {
