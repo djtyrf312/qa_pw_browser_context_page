@@ -4,6 +4,20 @@ export class ViewArticlePage {
   constructor(page) {
     this.page = page;
     this.articleTitleHeader = page.getByRole('heading');
+    this.followAuthorButton = page.getByRole('button').filter({hasText: 'Follow' }).first(); 
+  }
+
+  async asssertAuthorIsFollowed(username) {
+    await test.step(`Assert the author: ${username} is followed`, async () => {
+      await expect(this.followAuthorButton).toContainText('Unfollow');
+      await expect(this.followAuthorButton).toContainText(username.toLowerCase());
+    });
+  }
+
+  async clickFollowButton() {
+    await test.step(`Click on 'Follow' button`, async () => {
+      await this.followAuthorButton.click();
+    });
   }
 
   authorLinkInArticleHeader(username) {

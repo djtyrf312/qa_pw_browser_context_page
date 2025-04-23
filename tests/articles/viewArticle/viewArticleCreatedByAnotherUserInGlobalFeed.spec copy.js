@@ -1,10 +1,15 @@
 import { test } from '../../_fixtures/fixtures';
-import { ViewArticlePage } from '../../../src/ui/pages/article/ViewArticlePage';
 import { createArticle } from '../../../src/ui/actions/articles/createArticle';
 import { signUpUser } from '../../../src/ui/actions/auth/signUpUser';
 import { HomePage } from '../../../src/ui/pages/HomePage';
 
-test.beforeEach(async ({ page1, page2, user1, user2, articleWithoutTags }) => {
+test.beforeEach(async ({ 
+  page1,
+  page2,
+  user1,
+  user2,
+  articleWithoutTags,
+}) => {
   await signUpUser(page1, user1);
   await signUpUser(page2, user2);
 
@@ -18,7 +23,9 @@ test('View an article in the global feed created by another user', async ({
   const homePage2 = new HomePage(page2);
   await homePage2.open();
   await homePage2.clickGlobalFeedTab();
-  await homePage2.assertFeedContainsArticleTitle(articleWithoutTags.title);
+  await homePage2.assertFeedContainsArticleTitle(
+    articleWithoutTags.title
+  );
 });
 
 test.afterEach(async ({ page1, page2 }) => {
