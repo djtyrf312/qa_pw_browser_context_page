@@ -5,6 +5,28 @@ export class HomePage {
     this.page = page;
     this.yourFeedTab = page.getByText('Your Feed');
     this.newArticleLink = page.getByRole('link', { name: 'New Article' });
+    this.globalFeedTab = page.getByText('Global Feed');
+    this.articlePreview = page.locator('.article-preview');
+    this.articleTitle = this.articlePreview.locator('h1');
+  }
+
+  async assertFeedContainsArticleTitle(articleTitle) {
+    await test.step(`Assert the tab contains the article title: ${articleTitle}`, async () => {
+      const articleTitleLocator = this.articlePreview.locator('h1', { hasText: articleTitle });
+      await expect(articleTitleLocator).toBeVisible();
+    });
+  }
+
+  async clickGlobalFeedTab() {
+    await test.step(`Click the 'Global Feed' tab`, async () => {
+      await this.globalFeedTab.click();
+    });
+  }
+
+  async open() {
+    await test.step(`Navigate to the home page`, async () => {
+      await this.page.goto('/');
+    });
   }
 
   async clickNewArticleLink() {
