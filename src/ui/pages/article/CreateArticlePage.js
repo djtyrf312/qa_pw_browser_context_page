@@ -11,8 +11,9 @@ export class CreateArticlePage {
       name: 'Publish Article',
     });
     this.errorMessage = page.getByRole('list').nth(1);
-    this.updateArticleButton = page
-      .getByRole('button', { name: 'Update Article' });
+    this.updateArticleButton = page.getByRole('button', {
+      name: 'Update Article'
+    });
   }
 
   async clickUpdateArticleButton() {

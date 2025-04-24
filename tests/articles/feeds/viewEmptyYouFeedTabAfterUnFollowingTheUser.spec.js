@@ -17,7 +17,7 @@ test.beforeEach(async ({
   await createArticle(page1, articleWithoutTags);
 });
 
-test('User does not see other user\'s new articles in "Your Feed" after unfollowing their profile', async ({
+test('View an empty "Your Feed" after unfollowing another user', async ({
   articleWithoutTags,
   page2,
   user1,

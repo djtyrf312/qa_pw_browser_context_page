@@ -1,8 +1,8 @@
-import { test } from '../../_fixtures/fixtures';
-import { createArticle } from '../../../src/ui/actions/articles/createArticle';
-import { signUpUser } from '../../../src/ui/actions/auth/signUpUser';
-import { HomePage } from '../../../src/ui/pages/HomePage';
-import { ViewArticlePage } from '../../../src/ui/pages/article/ViewArticlePage';
+import { test } from '../_fixtures/fixtures';
+import { createArticle } from '../../src/ui/actions/articles/createArticle';
+import { signUpUser } from '../../src/ui/actions/auth/signUpUser';
+import { HomePage } from '../../src/ui/pages/HomePage';
+import { ViewArticlePage } from '../../src/ui/pages/article/ViewArticlePage';
 
 test.beforeEach(async ({ 
   page1,
@@ -17,7 +17,7 @@ test.beforeEach(async ({
   await createArticle(page1, articleWithoutTags);
 });
 
-test('User can follow the article created by another user', async ({
+test('Follow the article created by another user', async ({
   articleWithoutTags,
   page2,
   user1,

@@ -9,9 +9,10 @@ export class HomePage {
     this.articlePreview = page.locator('.article-preview');
     this.articleTitle = this.articlePreview.locator('h1');
     this.yourFeedTab = page.getByText('Your Feed');
+    this.url = '/';
   }
 
-  async assertTabisEmpty() {
+  async assertNoArticlesMessageIsVisible() {
     await test.step(`Assert the tab is empty`, async () => {
       const emptyFeedMessage = this.page.getByText('No articles are here... yet.');
       await expect(emptyFeedMessage).toBeVisible();
@@ -25,7 +26,7 @@ export class HomePage {
   }
 
   async assertFeedContainsArticleTitle(articleTitle) {
-    await test.step(`Assert the tab contains the article title: ${articleTitle}`, async () => {
+    await test.step(`Assert the feed contains article title: ${articleTitle}`, async () => {
       const articleTitleLocator = this.articlePreview.locator('h1', { hasText: articleTitle });
       await expect(articleTitleLocator).toBeVisible();
     });
@@ -39,7 +40,7 @@ export class HomePage {
 
   async open() {
     await test.step(`Navigate to the home page`, async () => {
-      await this.page.goto('/');
+      await this.page.goto(this.url);
     });
   }
 
