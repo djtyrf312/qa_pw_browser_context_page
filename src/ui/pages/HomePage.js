@@ -10,6 +10,13 @@ export class HomePage {
     this.articleTitle = this.articlePreview.locator('h1');
     this.yourFeedTab = page.getByText('Your Feed');
     this.url = '/';
+    this.settingsLink = page.getByRole('link', { name: 'Settings' });
+  }
+
+  async clickSettingsLink() {
+    await test.step(`Click the 'Settings' link`, async () => {
+      await this.settingsLink.click();
+    });
   }
 
   async assertNoArticlesMessageIsVisible() {
