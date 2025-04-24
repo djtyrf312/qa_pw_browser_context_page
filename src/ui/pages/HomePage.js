@@ -13,6 +13,12 @@ export class HomePage {
     this.settingsLink = page.getByRole('link', { name: 'Settings' });
   }
 
+  async reload() {
+    await test.step(`Reload the page`, async () => {
+      await this.page.reload();
+    });
+  }
+
   async clickSettingsLink() {
     await test.step(`Click the 'Settings' link`, async () => {
       await this.settingsLink.click();

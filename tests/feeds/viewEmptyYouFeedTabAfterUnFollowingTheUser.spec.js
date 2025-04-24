@@ -1,8 +1,8 @@
-import { test } from '../../_fixtures/fixtures';
-import { createArticle } from '../../../src/ui/actions/articles/createArticle';
-import { signUpUser } from '../../../src/ui/actions/auth/signUpUser';
-import { HomePage } from '../../../src/ui/pages/HomePage';
-import { ViewArticlePage } from '../../../src/ui/pages/article/ViewArticlePage';
+import { test } from '../_fixtures/fixtures';
+import { createArticle } from '../../src/ui/actions/articles/createArticle';
+import { signUpUser } from '../../src/ui/actions/auth/signUpUser';
+import { HomePage } from '../../src/ui/pages/HomePage';
+import { ViewArticlePage } from '../../src/ui/pages/article/ViewArticlePage';
 
 test.beforeEach(async ({ 
   page1,
@@ -42,7 +42,7 @@ test('View an empty "Your Feed" after unfollowing another user', async ({
   //check if the article is not in the feed
   await homePage2.open();
   await homePage2.clickYourFeedTab()
-  await homePage2.assertTabisEmpty();
+  await homePage2.assertNoArticlesMessageIsVisible();
 });
 
 test.afterEach(async ({ page1, page2 }) => {

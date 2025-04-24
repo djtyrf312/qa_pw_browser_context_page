@@ -1,7 +1,7 @@
-import { test } from '../../_fixtures/fixtures';
-import { createArticle } from '../../../src/ui/actions/articles/createArticle';
-import { signUpUser } from '../../../src/ui/actions/auth/signUpUser';
-import { HomePage } from '../../../src/ui/pages/HomePage';
+import { test } from '../_fixtures/fixtures';
+import { createArticle } from '../../src/ui/actions/articles/createArticle';
+import { signUpUser } from '../../src/ui/actions/auth/signUpUser';
+import { HomePage } from '../../src/ui/pages/HomePage';
 
 test.beforeEach(async ({ 
   page1,

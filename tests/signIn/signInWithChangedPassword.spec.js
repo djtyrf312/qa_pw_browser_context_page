@@ -1,8 +1,6 @@
 import { test } from '../_fixtures/fixtures';
-import { createArticle } from '../../src/ui/actions/articles/createArticle';
 import { signUpUser } from '../../src/ui/actions/auth/signUpUser';
 import { HomePage } from '../../src/ui/pages/HomePage';
-import { ViewArticlePage } from '../../src/ui/pages/article/ViewArticlePage';
 import { SettingsPage } from '../../src/ui/pages/SettingsPage';
 import { ProfilePage } from '../../src/ui/pages/ProfilePage';
 import { SignInPage } from '../../src/ui/pages/auth/SignInPage';

@@ -29,7 +29,7 @@ test('Unfollow the article created by another user', async ({
     articleWithoutTags.title
   );
   await viewArticlePage.clickFollowButton();
-  await viewArticlePage.asssertAuthorIsFollowed(user1.username)
+  await viewArticlePage.assertAuthorIsFollowed(user1.username)
   await viewArticlePage.clickUnfollowButton();
   await viewArticlePage.assertAuthorIsUnfollowed(user1.username)
 });
